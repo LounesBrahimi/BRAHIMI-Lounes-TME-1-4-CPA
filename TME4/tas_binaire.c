@@ -36,7 +36,7 @@ id_degree PopMin(min_heap *h){
     id_degree pop;
     if(h->count_==0){
         printf("Empty ERROR\n");
-        return ;
+        return pop;
     }
     pop = h->arr[0];
     h->indexation[h->arr[0].indice] = -1;

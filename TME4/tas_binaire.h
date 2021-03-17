@@ -1,6 +1,8 @@
 #ifndef TAS_BINAIRE_H_INCLUDED
 #define TAS_BINAIRE_H_INCLUDED
 
+#include <stdio.h>
+
 typedef struct{
     int d;
     int c;

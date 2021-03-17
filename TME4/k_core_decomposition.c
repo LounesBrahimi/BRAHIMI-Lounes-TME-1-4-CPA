@@ -274,7 +274,7 @@ printf("\n\n===Generation d'un graph===\n");
     int id;
     char nom[10000];
     for(i=0; i<g->nombreArcs; i++){
-	fscanf(file,"%lu %[^\n]", &id, nom);
+	fscanf(file,"%d %[^\n]", &id, nom);
         if(id == max){
             printf("Anomalous : %s\n", nom);
         }else

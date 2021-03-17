@@ -2,6 +2,7 @@
 
 int main()
 {
+    printf("\n\n");
     printf("==== TME4 ====\n");
     printf("#1# : k-core decomposition\n");
     printf("#2# : Graph mining with k-core\n");
