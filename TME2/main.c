@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #include "draw.h"
 
 int main(){
+    printf("\n\n");
     printf("==== TME2 ====\n");
     printf("#1# : PageRank\n");
     printf("#2# : Personalized PageRank\n");
@@ -275,7 +277,7 @@ int main(){
         char nom[10000];
         int c=0;
         for(i=0; i<g->nombreArcs; i++){
-            fscanf(file,"%lu %[^\n]", &id, nom);
+            fscanf(file,"%llu %[^\n]", &id, nom);
             if(id == maxN[0]){
                 c++;
                 strcpy(s_max_1, nom);
@@ -337,24 +339,3 @@ int main(){
         }
     return 0;
 }
-        /*if(cpt == 10) break;*/
-   /* draw_nodes_p_r(g,"magnus.txt");*/
-
-
-/*int main(){
-
-    graph* g;
-	printf("alr21--dirLinks--enwiki-20071018.txt\n");
-    g=liste_arcs("alr21--dirLinks--enwiki-20071018.txt");
-	printf("Number of nodes: %lu\n",g->nombreNoeuds);
-	printf("Number  of edges: %lu\n",g->nombreArcs);
-
-    indexation(g);
-    power_iteration(g,0.15,5);
-
-    indicage_de_d(g);
-    drawPRWOutD(0.15, g, "t2.txt");
-    drawPRWInD(0.15, g, "t2.txt");
-    printf("####\n");
-    return 0;
-}*/
