@@ -5,6 +5,7 @@
 #include <time.h>
 
 int main(){
+    printf("\n\n");
     printf("==== TME1 ====\n");
     printf("#1# : Compter le nombre de noeuds et d'arcs\n");
     printf("#2# : store the graph in memory\n");
@@ -71,7 +72,7 @@ int main(){
             mkmatrix(g);
             printf("Construction Finit.\n");
             affichageMatrice(g);
-       -     free_adjmatrix(g);
+            free_adjmatrix(g);
         } else if (choix_methode == 3){
             printf("\n");
             adjlist* g;
