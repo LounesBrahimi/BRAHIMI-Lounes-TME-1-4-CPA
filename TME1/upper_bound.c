@@ -62,33 +62,3 @@ resultat_bfs upper_bfs(adjlist* g, unsigned long s_dep){
     free(dis);
     return b;
 }
-
-/*
-int main(int argc,char** argv){
-	adjlist* g;
-
-	printf("Reading edgelist from file com-amazon.ungraph.txt\n");
-	g=readedgelist("com-amazon.ungraph.txt");
-
-	printf("Number of nodes: %lu\n",g->nombreNoeuds);
-	printf("Number of edges: %lu\n",g->nombreArcs);
-
-	printf("Building the adjacency list\n");
-    mkadjlist(g);
-
-    resultat_bfs b;
-    unsigned long u = 1;
-    int i;
-        b = upper_bfs(g,u);
-    printf("\n_________ distance : %d _________\n", b.dis);
-
-            b = bfs(g,b.noeud);
-    printf("\n_________ distance : %d _________\n", b.dis);
-
-                b = bfs(g,b.noeud);
-    printf("\n_________ distance : %d _________\n", b.dis);
-
-	free_adjlist(g);
-	return 0;
-}
-*/

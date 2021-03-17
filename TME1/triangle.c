@@ -1,6 +1,6 @@
 #include "triangle.h"
 
-arclist* liste_des_arcs(char* nomFichier){
+adjlist* liste_des_arcs(char* nomFichier){
 	char c = '\0';
 	unsigned long max=MAX;
 	unsigned long source = -1;
@@ -53,13 +53,7 @@ arclist* liste_des_arcs(char* nomFichier){
             g->arcs[g->nombreArcs].source = cible;
             g->arcs[g->nombreArcs].cible = source;
         }
-
         noeudMax = (g->arcs[g->nombreArcs].cible < noeudMax)? noeudMax : g->arcs[g->nombreArcs].cible;
-
-		/*if (++(g->nombreArcs)==max) {
-			max+=MAX;
-			g->arcs=realloc(g->arcs,max*sizeof(arc));
-		}*/
 		g->nombreArcs++;
 	}
 	fclose(file);
@@ -69,7 +63,6 @@ arclist* liste_des_arcs(char* nomFichier){
         if (listeNoeuds[i] == 1) g->nombreNoeuds++;
     }
     free(listeNoeuds);
-	/*g->arcs=realloc(g->arcs,g->nombreArcs*sizeof(arc));*/
     g->id_max = noeudMax;
 	return g;
 }
@@ -124,9 +117,7 @@ void adjlist_dag(adjlist* g){
 
 		cpt = g->cd[u_0] + d[u_0]+1;
 		g->adj[ g->cd[u_0] + d[u_0]++ ]=v;
-		/*g->adj[ g->cd[v_0] + d[v_0]++ ]=u;*/
 	}
-	/*free(d);*/
 }
 
 int nombre_triangle(adjlist* g){

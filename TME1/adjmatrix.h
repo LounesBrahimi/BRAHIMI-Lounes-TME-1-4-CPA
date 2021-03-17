@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "listedges.h"
 
 typedef struct {
@@ -15,7 +16,7 @@ typedef struct {
 	bool *mat;
 } adjmatrix;
 
-arclist* readarclistMat(char* nomFichier);
+adjmatrix* readarclistMat(char* nomFichier);
 void mkmatrix(adjmatrix* g);
 void free_adjmatrix(adjmatrix *g);
 void affichageMatrice(adjmatrix* g);

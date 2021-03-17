@@ -13,7 +13,7 @@ typedef struct {
 	unsigned long *adj;
 } adjlist;
 
-arclist* readedgelist(char* nomFichier);
+adjlist* readedgelist(char* nomFichier);
 void mkadjlist(adjlist* g);
 
 #endif // ADJARRAY_H_INCLUDED

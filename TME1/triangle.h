@@ -3,7 +3,7 @@
 
 #include "adjarray.h"
 
-arclist* liste_des_arcs(char* nomFichier);
+adjlist* liste_des_arcs(char* nomFichier);
 void adjlist_dag(adjlist* g);
 int nombre_triangle(adjlist* g);
 

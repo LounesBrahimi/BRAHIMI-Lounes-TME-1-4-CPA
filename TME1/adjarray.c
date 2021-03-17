@@ -1,6 +1,6 @@
 #include "adjarray.h"
 
-arclist* readedgelist(char* nomFichier){
+adjlist* readedgelist(char* nomFichier){
 	char c = '\0';
 	FILE *file=fopen(nomFichier,"r");
 	adjlist *g=malloc(sizeof(adjlist));
@@ -37,10 +37,6 @@ arclist* readedgelist(char* nomFichier){
         noeudMax = (g->arcs[g->nombreArcs].cible < noeudMax)? noeudMax : g->arcs[g->nombreArcs].cible;
 
         g->nombreArcs++;
-		/*if (++(g->nombreArcs)==max) {
-			max+=MAX;
-			g->arcs=realloc(g->arcs,max*sizeof(arc));
-		}*/
 	}
 	fclose(file);
 
@@ -49,7 +45,6 @@ arclist* readedgelist(char* nomFichier){
         if (listNoeuds[i] == 1) g->nombreNoeuds++;
     }
     free(listNoeuds);
-	/*g->arcs=realloc(g->arcs,g->nombreArcs*sizeof(arc));*/
     g->id_max = noeudMax;
 	return g;
 }
@@ -100,24 +95,3 @@ void free_adjlist(adjlist *g){
 	free(g->adj);
 	free(g);
 }
-
-/*
-int main(int argc,char** argv){
-	adjlist* g;
-
-	printf("Reading edgelist from file com-amazon.ungraph.txt\n");
-	g=readedgelist("com-amazon.ungraph.txt");
-
-	printf("Number of nodes: %lu\n",g->nombreNoeuds);
-	printf("Number of edges: %lu\n",g->nombreArcs);
-
-	printf("Building the adjacency list\n");
-    mkadjlist(g);
-
-    printf("premier : %d\n", g->cd[4]);
-    printf("Deuxio : %d\n", g->adj[8]);
-
-	free_adjlist(g);
-
-	return 0;
-}*/

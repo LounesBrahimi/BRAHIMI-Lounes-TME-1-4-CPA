@@ -2,6 +2,7 @@
 #include "lower_bound.h"
 #include "upper_bound.h"
 #include "triangle.h"
+#include <time.h>
 
 int main(){
     printf("==== TME1 ====\n");
@@ -70,7 +71,7 @@ int main(){
             mkmatrix(g);
             printf("Construction Finit.\n");
             affichageMatrice(g);
-            free_adjmatrix(g);
+       -     free_adjmatrix(g);
         } else if (choix_methode == 3){
             printf("\n");
             adjlist* g;
@@ -91,7 +92,7 @@ int main(){
             printf("Nombre d'arcs : %lu\n",g->nombreArcs);
             printf("Construction de la liste d'adjacence\n");
             mkadjlist(g);
-            free_adjlist(g);
+            /*free_adjlist(g);*/
         }
     } else if (choix == 3){
                 printf("*1* : Lower bound\n");
@@ -126,7 +127,7 @@ int main(){
                         u = b.noeud;
                     }
                     printf("\ndistance ==> %d\n", b.dis);
-                    free_adjlist(g);
+                   /* free_adjlist(g);*/
                 } else if (choix_bfs == 2){
                     printf("\n");
                     adjlist* g;
@@ -151,7 +152,7 @@ int main(){
                     int i;
                     b = upper_bfs(g,u);
                     printf("\nDistance ==> %d\n", b.dis);
-                    free_adjlist(g);
+                    /*free_adjlist(g);*/
                 }
     } else if (choix == 4){
                 t_debut = time(NULL);
@@ -174,104 +175,8 @@ int main(){
                 printf("Nombre d'arcs : %lu\n",g->nombreArcs);
                 adjlist_dag(g);
                 printf("\nnombre de triangles ==> %d\n", nombre_triangle(g));
-                free_adjlist(g);
+                /*free_adjlist(g);*/
     }
     printf("\nTempsd'execution ==> %.2fs\n", (double)(time(NULL) - t_debut));
     return 0;
 }
-
-/*int main(int argc,char** argv){
-	adjlist* g;
-	printf("Fichier : com-amazon.ungraph\n");
-    g=liste_des_arcs("com-amazon.ungraph.txt");
-	printf("Nombre de noeud : %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-    adjlist_dag(g);
-    printf("\nnombre de triangles ==> %d\n", nombre_triangle(g));
-	free_adjlist(g);
-	return 0;
-}*/
-
-/*
-int main(){
-    printf("Fichier : \"com-amazon.ungraph\"\n");
-    /*time_t t_debut = time(NULL);*/
-
-    /*printf("temps_execution ==> %.2fs\n", (double)(time(NULL) - t_debut));
-}*/
-
-/*int main(int argc,char** argv){
-    arclist* g;
-	printf("Fichier : com-orkut.ungraph\n");
-	g=readarclist("com-orkut.ungraph.txt");
-	printf("Nombre de noeuds: %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-    printf("Exemple arc 10 : %lu ==> %lu\n", g->arcs[10].source, g->arcs[10].cible);
-	free_arclist(g);
-	return 0;
-}*/
-
-/*int main(int argc,char** argv){
-	adjmatrix* g;
-	printf("File : matrice");
-	g=readarclistMat("matrice.txt");
-
-	printf("\nNombre de noeuds : %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-
-	printf("Construction de la matrice :\n");
-	indexation(g);
-	mkmatrix(g);
-    printf("Construction Finit.\n");
-    affichageMatrice(g);
-	free_adjmatrix(g);
-	return 0;
-}*/
-
-/*
-int main(int argc,char** argv){
-	adjlist* g;
-	printf("Fichier : com-orkut.ungraph\n");
-	g=readedgelist("com-orkut.ungraph.txt");
-	printf("Nombre de noeuds : %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-	printf("Construction de la liste d'adjacence\n");
-    mkadjlist(g);
-	free_adjlist(g);
-	return 0;
-}*/
-
-/*int main(int argc,char** argv){
-	adjlist* g;
-	printf("Fichier : com-orkut.ungraph\n");
-	g=readedgelist("com-orkut.ungraph.txt");
-	printf("Nombre de noeuds : %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-    mkadjlist(g);
-    resultat_bfs b;
-    unsigned long u = 20;
-    int i;
-    for(i=0;i<10;i++){
-        b = lower_bfs(g,u);
-        u = b.noeud;
-    }
-    printf("\ndistance ==> %d\n", b.dis);
-	free_adjlist(g);
-	return 0;
-}*/
-
-/*int main(){
-	adjlist* g;
-	printf("Fichier : com-orkut.ungraph\n");
-	g=readedgelist("com-orkut.ungraph.txt");
-	printf("Nombre de noeuds : %lu\n",g->nombreNoeuds);
-	printf("Nombre d'arcs : %lu\n",g->nombreArcs);
-    mkadjlist(g);
-    resultat_bfs b;
-    unsigned long u = 1;
-    int i;
-    b = upper_bfs(g,u);
-    printf("\nDistance ==> %d\n", b.dis);
-	free_adjlist(g);
-	return 0;
-}*/

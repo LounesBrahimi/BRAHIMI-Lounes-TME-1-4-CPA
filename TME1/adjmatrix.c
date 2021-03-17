@@ -1,6 +1,6 @@
 #include "adjmatrix.h"
 
-arclist* readarclistMat(char* nomFichier){
+adjmatrix* readarclistMat(char* nomFichier){
     unsigned long* listeNoeud;
     listeNoeud = (unsigned long*)malloc(MAX*sizeof(unsigned long));
     char c;
@@ -51,7 +51,6 @@ arclist* readarclistMat(char* nomFichier){
     g->id_max = noeudMax;
     free(listeNoeud);
     fclose(file);
-    /*g->arcs=realloc(g->arcs,g->nombreArcs*sizeof(arc));*/
 	return g;
     }
     return NULL;
@@ -96,23 +95,7 @@ void affichageMatrice(adjmatrix* g){
     int i;
         for(i=0; i<(g->nombreNoeuds*g->nombreNoeuds); i++)
         {
-         printf("%lu     ", g->mat[i]);
+         printf("%u     ", g->mat[i]);
          if (((i+1) % g->nombreNoeuds)==0) printf("\n");
         }
 }
-
-/*int main(int argc,char** argv){
-	adjmatrix* g;
-
-	printf("Reading edgelist from file com-amazon.ungraph.txt");
-	g=readarclistMat("com-amazon.ungraph.txt");
-
-	printf("\nNumber of nodes: %lu\n",g->nombreNoeuds);
-	printf("Number of edges: %lu\n",g->nombreArcs);
-
-	printf("Building the adjacency matrix\n");
-	mkmatrix(g);
-    affichageMatrice(g);
-	free_adjmatrix(g);
-	return 0;
-}*/

@@ -42,5 +42,5 @@ void compteur(char* nomFichier){
     fclose(file);
     }
     else printf("Erreur à l'ouverture du fichier!");
-    printf("Nombre de noeud : %d\nNombre d'arcs : %d\n", nombreNoeud, nombreArcs);
+    printf("Nombre de noeud : %ld\nNombre d'arcs : %ld\n", nombreNoeud, nombreArcs);
 }
